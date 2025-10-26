@@ -10,14 +10,12 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// --- Base de Datos en Memoria ---
-let inventoryData = [];
-let isDataLoaded = false;
+let inventoryData = []
+let isDataLoaded = false
 
-// --- Lógica de Negocio: Calcular Estado de Frescura ---
 const calculateStatus = (expiryDate) => {
-  const today = new Date();
-  const expiry = new Date(expiryDate);
+  const today = new Date()
+  const expiry = new Date(expiryDate)
 
   const diffTime = expiry.getTime() - today.getTime();
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -33,8 +31,7 @@ const calculateStatus = (expiryDate) => {
   return 'ok';
 };
 
-// --- Cargar Datos al Iniciar el Servidor ---
-const csvFilePath = path.join(__dirname, 'HackMTY2025_ExpirationDateManagement_Dataset_v1q.csv');
+const csvFilePath = path.join(__dirname, 'HackMTY2025_ExpirationDateManagement_Dataset_v1q.csv')
 
 fs.createReadStream(csvFilePath)
   .pipe(csv())
@@ -50,10 +47,9 @@ fs.createReadStream(csvFilePath)
     console.error('Error al leer el CSV:', err.message);
   });
 
-// --- API Endpoints ---
 app.get('/api/inventory', (req, res) => {
   if (!isDataLoaded) {
-    return res.status(503).json({ error: 'Datos cargándose, intenta de nuevo en unos segundos.' });
+    return res.status(503).json({ error: 'Datos cargándose, intenta de nuevo en unos segundos.' })
   }
 
   res.json(inventoryData);
@@ -61,7 +57,7 @@ app.get('/api/inventory', (req, res) => {
 
 app.get('/api/lot/:lotNumber', (req, res) => {
   if (!isDataLoaded) {
-    return res.status(503).json({ error: 'Datos cargándose, intenta de nuevo en unos segundos.' });
+    return res.status(503).json({ error: 'Datos cargándose, intenta de nuevo en unos segundos.' })
   }
 
   const { lotNumber } = req.params;
@@ -74,7 +70,6 @@ app.get('/api/lot/:lotNumber', (req, res) => {
   return res.status(404).json({ error: 'Lote no encontrado' });
 });
 
-// --- Iniciar Servidor ---
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`)
 });
