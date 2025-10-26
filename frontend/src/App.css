@@ -1,0 +1,120 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(18px);
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 22px 48px;
+  background: linear-gradient(135deg, rgba(14, 23, 53, 0.85), rgba(31, 49, 101, 0.75));
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-ambient);
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.app-logo {
+  height: 56px;
+  width: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(0, 217, 255, 0.45));
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+}
+
+.app-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.app-nav__link {
+  position: relative;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding-bottom: 6px;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.app-nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent-magenta), var(--color-accent-cyan));
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.app-nav__link:hover {
+  color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+.app-nav__link:hover::after {
+  transform: scaleX(1);
+}
+
+.app-nav__link--active {
+  color: var(--color-text-primary);
+}
+
+.app-nav__link--active::after {
+  transform: scaleX(1);
+}
+
+.app-main {
+  flex: 1;
+  padding: 36px 48px 60px;
+}
+
+.app-footer {
+  padding: 20px 48px 32px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+  background: linear-gradient(135deg, rgba(6, 11, 25, 0.8), rgba(12, 19, 40, 0.6));
+}
+
+.pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  background: rgba(192, 132, 252, 0.15);
+  color: var(--color-accent-magenta);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+}
