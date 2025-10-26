@@ -17,7 +17,7 @@ Proyecto presentado en HackMTY que combina un backend Express y un frontend Reac
 - **Backend (Express)**: Carga un dataset CSV con inventario y calcula automáticamente el estado de frescura (fresco, alerta, expirado) según fecha de caducidad. Expone endpoints REST para inventario general y detalle por número de lote.
 - **Frontend (React + Vite)**: Dashboard para supervisores con KPIs, gráficas y alertas críticas; módulo de escaneo para empacadores con cámara QR, historial y acciones rápidas.
 
-Ambos proyectos se ejecutan de forma independiente (`backend/` y `frontend/`), comunicándose vía HTTP (`http://localhost:3001`).
+Ambos proyectos se ejecutan de forma independiente (`backend/` y `frontend/`), comunicándose vía HTTP.
 
 ## Tecnologías clave
 - **Frontend**: React 18, Vite, React Router, Recharts, Framer Motion, React CountUp, react-qr-scanner, Axios, CSS moderno con theme "dark neon".
