@@ -86,12 +86,3 @@ npm install
 - Animaciones suaves en gráficas, KPIs y scanner usando Framer Motion.
 - Componentes de estado con chips de color para expirar/alerta/ok.
 
-## Notas y próximos pasos
-- Agregar autenticación básica para roles (supervisor vs empacador).
-- Refinar script de inicio en backend (`npm start`).
-- Conectar con fuente de datos en tiempo real (API o base de datos).
-- Automatizar builds/test con CI y preparar deploy (ej. Vercel + Render).
-- Añadir guía de contribución y licenciamiento.
-
----
-**Contacto:** luisrosales852 + equipo HackMTY 2025.```}
